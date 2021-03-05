@@ -4,9 +4,9 @@ buildscript {
     
     ext {
         // Sdk and tools
-        compileSdkVersion = 30
-        minSdkVersion = 21
-        targetSdkVersion = 30
+        compileSdkVersion = 28
+        minSdkVersion = 24
+        targetSdkVersion = 28
 
         // App dependencies
         appCompatVersion = '1.1.0'
@@ -17,7 +17,7 @@ buildscript {
         espressoVersion = '3.1.1'
         fragmentVersion = '1.1.0-alpha09'
         glideVersion = '4.10.0'
-        gradleVersion = '4.1.0'
+        gradleVersion = '4.1.1'
         gsonVersion = '2.8.2'
         hiltVersion = '2.28.3-alpha'
         hiltViewModelVersion = '1.0.0-alpha02'
@@ -39,6 +39,7 @@ buildscript {
         uiAutomatorVersion = '2.2.0'
         viewPagerVersion = '1.0.0'
         workVersion = '2.1.0'
+        permissionDversion = '4.8.0'
     }
 
     repositories {

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
 import com.cc12703.app.docsetreader.databinding.MainActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
+import permissions.dispatcher.RuntimePermissions
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -15,4 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView<MainActivityBinding>(this, R.layout.main_activity)
     }
+
+
 }

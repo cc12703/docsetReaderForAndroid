@@ -40,7 +40,7 @@
         tools:layout="@layout/read_fragment">
 
         <argument
-            android:name="plantId"
+            android:name="docsetPath"
             app:argType="string" />
     </fragment>
 
