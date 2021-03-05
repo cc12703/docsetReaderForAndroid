@@ -21,6 +21,7 @@ class LaunchActivity: AppCompatActivity() {
     fun launchMain() {
         val intent = Intent(LaunchActivity@this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     @OnPermissionDenied(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)

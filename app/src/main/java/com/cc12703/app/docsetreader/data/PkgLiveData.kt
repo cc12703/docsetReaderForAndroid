@@ -15,7 +15,7 @@ private class MyFileObserver(val liveData: MutableLiveData<MutableList<PkgInfo>>
         if(realEvent == CREATE) {
             val pathFile = File(path)
             val data = liveData.value
-            data?.add(PkgInfo(pathFile.name, pathFile))
+            data?.add(PkgInfo.newPkgInfo(pathFile))
             liveData.postValue(data)
         }
         else if(realEvent == DELETE) {
@@ -35,10 +35,12 @@ class PkgLiveData(
         MyFileObserver(this, rootPath)
     }
 
+    init {
+        scanOnce()
+    }
 
     override fun onActive() {
         super.onActive()
-        scanOnce()
         observer.startWatching()
     }
 
@@ -54,7 +56,7 @@ class PkgLiveData(
 
         val pkgs = files.asSequence()
                 .filter { it.name.endsWith("docset") }
-                .map { PkgInfo(it.name, it) }
+                .map { PkgInfo.newPkgInfo(it) }
                 .toList()
         val data = value
         data?.addAll(pkgs)
