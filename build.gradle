@@ -40,6 +40,7 @@ buildscript {
         viewPagerVersion = '1.0.0'
         workVersion = '2.1.0'
         permissionDversion = '4.8.0'
+        ormliteVersion = '5.3'
     }
 
     repositories {

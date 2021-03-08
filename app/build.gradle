@@ -75,6 +75,11 @@ dependencies {
 
     implementation "com.github.permissions-dispatcher:permissionsdispatcher:${rootProject.permissionDversion}"
     kapt "com.github.permissions-dispatcher:permissionsdispatcher-processor:${rootProject.permissionDversion}"
+
+    implementation "com.j256.ormlite:ormlite-android:${ormliteVersion}"
+
+    implementation fileTree(includes: ['*.jar'], dir: 'libs')
+
 }
 
 
