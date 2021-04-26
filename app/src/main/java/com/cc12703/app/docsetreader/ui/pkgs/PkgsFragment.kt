@@ -7,19 +7,25 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.cc12703.app.docsetreader.databinding.PkgsFragmentBinding
+import com.cc12703.app.docsetreader.info.PkgInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PkgsFragment : Fragment() {
 
-    private  val viewModel: PkgsViewModel by viewModels()
+    private val viewModel: PkgsViewModel by viewModels()
+    private lateinit var pkgHandler: PkgHandler
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = PkgsFragmentBinding.inflate(inflater, container, false)
 
-        val adapter = PkgsAdapter()
+        val adapter = PkgsAdapter(object : PkgHandler {
+            override fun onOpenPkg(pkg: PkgInfo) {
+                pkgHandler?.onOpenPkg(pkg)
+            }
+        })
         binding.pkgList.adapter = adapter
 
         viewModel.pkgs.observe(viewLifecycleOwner) {
@@ -27,5 +33,9 @@ class PkgsFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun setPkgHander(handler: PkgHandler) {
+        pkgHandler = handler
     }
 }

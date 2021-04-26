@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <androidx.slidingpanelayout.widget.SlidingPaneLayout
+        android:id="@+id/sliding_pane"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/pkg_frag"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:name="com.cc12703.app.docsetreader.ui.pkgs.PkgsFragment"/>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/read_frag"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ff333333"
+            android:name="com.cc12703.app.docsetreader.ui.read.ReadFragment"/>
+
+    </androidx.slidingpanelayout.widget.SlidingPaneLayout>
+
+</layout>

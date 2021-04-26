@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <item name="main_activity" type="layout">@layout/main_twopane</item>
+    <bool name="has_two_panes">true</bool>
+</resources>

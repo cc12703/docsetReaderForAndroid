@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cc12703.app.docsetreader.databinding.PkgsListItemBinding
 import com.cc12703.app.docsetreader.info.PkgInfo
 
-class PkgsAdapter : ListAdapter<PkgInfo, RecyclerView.ViewHolder>(PkgDiffCallback()) {
+class PkgsAdapter(private val handler: PkgHandler) : ListAdapter<PkgInfo, RecyclerView.ViewHolder>(PkgDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PkgViewHolder(
-                PkgsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                PkgsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                handler
         )
     }
 
@@ -24,14 +25,16 @@ class PkgsAdapter : ListAdapter<PkgInfo, RecyclerView.ViewHolder>(PkgDiffCallbac
     }
 
 
+
     class PkgViewHolder(
-            private val binding: PkgsListItemBinding
+            private val binding: PkgsListItemBinding,
+            private val handler: PkgHandler
     ) : RecyclerView.ViewHolder(binding.root) {
 
         init {
             binding.setClickListener {
                 binding.pkgInfo?.let { pkgInfo ->
-                    navigateToRead(pkgInfo, it)
+                    handler.onOpenPkg(pkgInfo)
                 }
             }
         }
@@ -42,11 +45,6 @@ class PkgsAdapter : ListAdapter<PkgInfo, RecyclerView.ViewHolder>(PkgDiffCallbac
                 pkgInfo = item
                 executePendingBindings()
             }
-        }
-
-        private fun navigateToRead(pkg: PkgInfo, view: View) {
-            val direction = PkgsFragmentDirections.actionPkgsFragmentToReadFragment(pkg.path.absolutePath)
-            view.findNavController().navigate(direction)
         }
     }
 
