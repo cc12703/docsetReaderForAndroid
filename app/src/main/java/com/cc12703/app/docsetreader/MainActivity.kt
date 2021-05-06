@@ -15,12 +15,14 @@ import com.cc12703.app.docsetreader.ui.pkgs.PkgsFragment
 import com.cc12703.app.docsetreader.ui.read.ReadFragment
 import com.cc12703.app.docsetreader.util.LOG_TAG
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         requestedOrientation = if(resources.getBoolean(R.bool.has_two_panes)) {
             ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val pkgFrag = supportFragmentManager.findFragmentById(R.id.pkg_frag) as PkgsFragment
         pkgFrag.setPkgHander(object : PkgHandler {
             override fun onOpenPkg(pkg: PkgInfo) {
-                Log.i(LOG_TAG, "openPkg ${pkg.path}")
+                Log.i(LOG_TAG, "openPkg ${pkg.buildLocalPkg(this@MainActivity)}")
                 if(resources.getBoolean(R.bool.has_two_panes)) {
                     openPkgForTwoPanes(pkg)
                 }
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun openPkgForOnePane(pkg: PkgInfo) {
         supportFragmentManager.commit {
-            replace(R.id.pkg_frag, ReadFragment.newInstance(pkg.path.absolutePath))
+            replace(R.id.pkg_frag, ReadFragment.newInstance(pkg.buildLocalPkg(this@MainActivity).absolutePath))
             addToBackStack(null)
         }
     }
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     private fun openPkgForTwoPanes(pkg: PkgInfo) {
         val slidingPane = findViewById<SlidingPaneLayout>(R.id.sliding_pane)
         supportFragmentManager.commit {
-            replace(R.id.read_frag, ReadFragment.newInstance(pkg.path.absolutePath))
+            replace(R.id.read_frag, ReadFragment.newInstance(pkg.buildLocalPkg(this@MainActivity).absolutePath))
             if(slidingPane.isOpen) {
                 setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             }

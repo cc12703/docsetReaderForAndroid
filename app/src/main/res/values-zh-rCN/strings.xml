@@ -2,5 +2,12 @@
 
 <resources>
 
+    <string name="retry">重试</string>
+    <string name="unknown_error">未知错误</string>
+    <string name="last_ver">最新版本</string>
+    <string name="show_ver">显示版本</string>
+    <string name="download">下载</string>
+    <string name="refresh">刷新</string>
+    <string name="dl_prog">进度</string>
 
 </resources>

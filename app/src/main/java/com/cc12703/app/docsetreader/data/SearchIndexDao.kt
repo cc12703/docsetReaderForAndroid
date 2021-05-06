@@ -6,7 +6,9 @@ import com.j256.ormlite.dao.Dao
 import com.j256.ormlite.dao.DaoManager
 import java.io.File
 
-
+/*
+room无法找到如何加载指定的db文件，所以使用了ormlite库
+ */
 class SearchIndexDao private constructor(
         private val dao: Dao<SearchIndex, Int>
 ){

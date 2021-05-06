@@ -4,5 +4,13 @@
 
     <string name="app_name" translatable="false">DocsetReader</string>
 
+    <string name="retry">Retry</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="last_ver">last</string>
+    <string name="show_ver">show</string>
+    <string name="download">download</string>
+    <string name="refresh">refresh</string>
+    <string name="dl_prog">progress</string>
+
 
 </resources>
