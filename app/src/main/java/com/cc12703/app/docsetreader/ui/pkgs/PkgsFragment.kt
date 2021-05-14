@@ -1,17 +1,17 @@
 package com.cc12703.app.docsetreader.ui.pkgs
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.cc12703.app.docsetreader.databinding.PkgsFragmentBinding
 import com.cc12703.app.docsetreader.info.PkgInfo
 import com.cc12703.app.docsetreader.ui.common.RetryCallback
-import com.cc12703.app.docsetreader.util.LOG_TAG
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class PkgsFragment : Fragment() {
@@ -29,6 +29,9 @@ class PkgsFragment : Fragment() {
         binding.viewModel = viewModel
         val adapter = PkgsAdapter(viewModel, this)
         binding.pkgList.adapter = adapter
+        binding.pkgList.addItemDecoration(
+            DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL )
+        )
 
         binding.retryCallback = object: RetryCallback {
             override fun retry() {
