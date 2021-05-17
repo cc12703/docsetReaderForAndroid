@@ -55,6 +55,7 @@ class PkgsRepository @Inject constructor(
 
 
     fun requestPkgs(isForceFetch: Boolean = false) {
+
         pkgs.value = Resource.loading(null)
 
         val dbSrc = pkgDao.getAll()
@@ -88,7 +89,10 @@ class PkgsRepository @Inject constructor(
                      }
                  }
                 Status.ERROR -> {
-                    result.addSource(pkgDao.getAll()) { result.value = Resource.error(res.message!!, it) }
+                    result.addSource(pkgDao.getAll()) {
+                        result.value = if (it.isEmpty()) Resource.error(res.message!!, null)
+                                        else Resource.success(it)
+                    }
                 }
             }
 

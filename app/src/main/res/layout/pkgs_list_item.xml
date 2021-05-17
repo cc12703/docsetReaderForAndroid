@@ -25,22 +25,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintBottom_toTopOf="@id/extendInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/extendInfo">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/nameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:text="@{pkgInfo.name}"
                 android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@id/localVerText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="name" />
 
             <TextView
@@ -51,87 +52,87 @@
                 android:text='@{@string/show_ver + " " + pkgInfo.localVer}'
                 android:textColor="@android:color/holo_green_light"
                 android:textSize="18sp"
-                app:visibleGone="@{pkgInfo.isShow()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/nameText"
+                app:visibleGone="@{pkgInfo.isShow()}"
                 tools:text="local_version" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/extendInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/basicInfo">
-
-        <TextView
-            android:id="@+id/lastVerText"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/extendInfo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='@{@string/last_ver + " " + pkgInfo.lastVer}'
-            android:textColor="@android:color/holo_blue_light"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="last_version" />
-        <Button
-            android:id="@+id/downloadBtn"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/lastVerText"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/holo_blue_light"
-            android:text="@string/download"
-            android:textSize="20sp"
-            app:visibleGone="@{pkgInfo.isDownload()}"
-            android:onClick="@{() -> viewModel.downloadPkg(pkgInfo)}"
-            />
-
-        <LinearLayout
-            android:id="@+id/dlInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="horizontal"
-            app:visibleGone="@{pkgInfo.isDownloading()}">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/basicInfo">
 
             <TextView
+                android:id="@+id/lastVerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{@string/last_ver + " " + pkgInfo.lastVer}'
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="last_version" />
+
+            <Button
+                android:id="@+id/downloadBtn"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="@{pkgInfo.dlVer}"
-                android:textSize="18sp"
-                tools:text="ver" />
+                android:onClick="@{() -> viewModel.downloadPkg(pkgInfo)}"
+                android:text="@string/download"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/lastVerText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visibleGone="@{pkgInfo.isDownload()}" />
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/dlInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text='@{@string/dl_prog + " " + Integer.toString(pkgInfo.dlPercent) + "%"}'
-                android:textSize="18sp"
-                tools:text="15%" />
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visibleGone="@{pkgInfo.isDownloading()}">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@{pkgInfo.dlVer}"
+                    android:textSize="18sp"
+                    tools:text="ver" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text='@{@string/dl_prog + " " + Integer.toString(pkgInfo.dlPercent) + "%"}'
+                    android:textSize="18sp"
+                    tools:text="15%" />
+
+            </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

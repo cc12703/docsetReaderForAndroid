@@ -1,63 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/root_layout"
+
+    <androidx.slidingpanelayout.widget.SlidingPaneLayout
+        android:id="@+id/sliding_pane"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            android:theme="@style/Theme.DocsetReader.AppBarOverlay">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/pkg_frag"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:name="com.cc12703.app.docsetreader.ui.pkgs.PkgsFragment"/>
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                style="@style/Widget.MaterialComponents.Toolbar.Primary"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:contentInsetStart="0dp"
-                app:layout_collapseMode="parallax"
-                app:menu="@menu/app_setting">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/read_frag"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ff333333"
+            android:name="com.cc12703.app.docsetreader.ui.read.ReadFragment"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:gravity="center"
-                    android:text="@string/app_name"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+    </androidx.slidingpanelayout.widget.SlidingPaneLayout>
 
-            </com.google.android.material.appbar.MaterialToolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.slidingpanelayout.widget.SlidingPaneLayout
-            android:id="@+id/sliding_pane"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/pkg_frag"
-                android:layout_width="220dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:name="com.cc12703.app.docsetreader.ui.pkgs.PkgsFragment"/>
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/read_frag"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#ff333333"
-                android:name="com.cc12703.app.docsetreader.ui.read.ReadFragment"/>
-
-        </androidx.slidingpanelayout.widget.SlidingPaneLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

@@ -12,6 +12,13 @@
     <string name="refresh">refresh</string>
     <string name="dl_prog">progress</string>
 
-    <string name="menu_setting_config">config</string>
+    <string name="menu_setting_config">setting</string>
+
+    <string name="setting_title">setting</string>
+    <string name="setting_btn_save">save</string>
+    <string name="setting_btn_cancel">cancel</string>
+    <string name="setting_text_github_name">github_name</string>
+    <string name="setting_text_tag_prefix_name">tag_prefix_name</string>
+
 
 </resources>

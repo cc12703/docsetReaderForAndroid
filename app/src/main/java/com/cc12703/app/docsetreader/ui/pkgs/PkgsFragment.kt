@@ -1,15 +1,15 @@
 package com.cc12703.app.docsetreader.ui.pkgs
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.cc12703.app.docsetreader.databinding.PkgsFragmentBinding
 import com.cc12703.app.docsetreader.info.PkgInfo
 import com.cc12703.app.docsetreader.ui.common.RetryCallback
+import com.cc12703.app.docsetreader.util.LOG_TAG
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -55,6 +55,10 @@ class PkgsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.requestPkgs()
     }
+
+
+
+
 
 
     fun setPkgHander(handler: PkgHandler) {

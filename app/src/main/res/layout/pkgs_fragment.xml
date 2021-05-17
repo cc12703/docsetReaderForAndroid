@@ -7,6 +7,7 @@
     <data>
 
         <import type="com.cc12703.app.docsetreader.info.Resource" />
+        <import type="com.cc12703.app.docsetreader.info.Status" />
 
         <variable name="viewModel"
             type="com.cc12703.app.docsetreader.ui.pkgs.PkgsViewModel" />
@@ -26,7 +27,7 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:paddingStart="12dp"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:paddingEnd="12dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/refreshText"
@@ -46,7 +47,7 @@
             android:onClick="@{() -> viewModel.refreshPkgs()}"
             android:text="@string/refresh"
             android:textSize="30sp"
-            app:visibleGone="@{viewModel.pkg.data != null}"
+            app:visibleGone="@{viewModel.pkg.status == Status.SUCCESS}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

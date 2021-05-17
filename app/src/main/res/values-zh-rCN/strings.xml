@@ -10,7 +10,12 @@
     <string name="refresh">刷新</string>
     <string name="dl_prog">进度</string>
 
-    <string name="menu_setting_config">配置</string>
+    <string name="menu_setting_config">设置</string>
 
+    <string name="setting_title">设置</string>
+    <string name="setting_btn_save">保存</string>
+    <string name="setting_btn_cancel">取消</string>
+    <string name="setting_text_github_name">github账号名</string>
+    <string name="setting_text_tag_prefix_name">目标前缀名</string>
 
 </resources>
