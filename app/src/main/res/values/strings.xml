@@ -12,5 +12,6 @@
     <string name="refresh">refresh</string>
     <string name="dl_prog">progress</string>
 
+    <string name="menu_setting_config">config</string>
 
 </resources>
