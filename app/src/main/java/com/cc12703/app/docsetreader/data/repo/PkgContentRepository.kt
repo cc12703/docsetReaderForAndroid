@@ -1,4 +1,4 @@
-package com.cc12703.app.docsetreader.data
+package com.cc12703.app.docsetreader.data.repo
 
 import java.io.File
 

@@ -1,16 +1,18 @@
 package com.cc12703.app.docsetreader.ui.setting
 
 import android.util.Log
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.cc12703.app.docsetreader.data.SettingRepository
+import com.cc12703.app.docsetreader.data.repo.SettingRepository
 import com.cc12703.app.docsetreader.util.LOG_TAG
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SettingViewModel @ViewModelInject internal constructor(
+@HiltViewModel
+class SettingViewModel @Inject internal constructor(
     private val repo: SettingRepository
 ) : ViewModel()  {
 

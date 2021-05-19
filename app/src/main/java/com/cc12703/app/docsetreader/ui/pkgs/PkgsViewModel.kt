@@ -1,15 +1,17 @@
 package com.cc12703.app.docsetreader.ui.pkgs
 
 import android.util.Log
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.cc12703.app.docsetreader.data.PkgsRepository
+import com.cc12703.app.docsetreader.data.repo.PkgsRepository
 import com.cc12703.app.docsetreader.info.PkgInfo
 import com.cc12703.app.docsetreader.info.Resource
 import com.cc12703.app.docsetreader.util.LOG_TAG
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class PkgsViewModel @ViewModelInject internal constructor(
+@HiltViewModel
+class PkgsViewModel @Inject internal constructor(
         private val pkgRepo: PkgsRepository
 ) : ViewModel() {
 

@@ -1,4 +1,4 @@
-package com.cc12703.app.docsetreader.binding
+package com.cc12703.app.docsetreader.util.binding
 
 import android.view.View
 import androidx.databinding.BindingAdapter

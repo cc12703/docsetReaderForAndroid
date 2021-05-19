@@ -1,6 +1,5 @@
-package com.cc12703.app.docsetreader.dl
+package com.cc12703.app.docsetreader.data.dl
 
-import com.cc12703.app.docsetreader.info.PkgInfo
 import java.io.File
 
 interface DownloadPkgNotifyer {

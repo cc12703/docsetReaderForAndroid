@@ -1,6 +1,6 @@
-package com.cc12703.app.docsetreader.api.util
+package com.cc12703.app.docsetreader.data.api.util
 
-import com.cc12703.app.docsetreader.api.ApiResponse
+import com.cc12703.app.docsetreader.data.api.ApiResponse
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import java.lang.reflect.ParameterizedType

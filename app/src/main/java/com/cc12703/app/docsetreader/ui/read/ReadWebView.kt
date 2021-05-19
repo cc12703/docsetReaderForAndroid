@@ -2,7 +2,7 @@ package com.cc12703.app.docsetreader.ui.read
 
 import android.content.Context
 import android.util.Log
-import com.cc12703.app.docsetreader.data.PkgContentRepository
+import com.cc12703.app.docsetreader.data.repo.PkgContentRepository
 import com.cc12703.app.docsetreader.util.LOG_TAG
 import com.tencent.smtt.sdk.WebView
 import com.tencent.smtt.sdk.WebViewClient

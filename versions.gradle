@@ -1,0 +1,135 @@
+
+
+def vers = [:]
+vers.gradle = '4.1.1'
+vers.kotlin = '1.4.10'
+vers.kotlinLint = '0.38.1'
+
+vers.appCompat = '1.2.0'
+vers.activity = '1.2.3'
+vers.fragment = '1.3.4'
+vers.navigation = '2.3.5'
+
+vers.core = '1.3.2'
+vers.lifecycle = '2.3.1'
+vers.room = '2.3.0'
+vers.work = '2.5.0'
+vers.datastore = '1.0.0-beta01'
+
+vers.material = '1.2.0'
+vers.recyclerView = '1.2.0'
+vers.paging = '3.0.0'
+vers.constraintLayout = '2.0.4'
+vers.slidingpaneLayout = '1.2.0-alpha01'
+
+vers.retrofit = '2.9.0'
+vers.httpLog = '4.7.2'
+vers.httpParams = 'v0.9'
+
+vers.hilt = '2.35.1'
+vers.hiltx = '1.0.0'
+
+vers.okdownload = '1.0.7'
+vers.permissionD = '4.8.0'
+vers.ormlite = '5.3'
+
+vers.commonsCompress = '1.20'
+
+ext.vers = vers
+
+def buildVers = [:]
+buildVers.minSDK = 24
+buildVers.compileSDK = 28
+buildVers.targetSDK = 28
+buildVers.buildTools = "28.0.3"
+ext.buildVers = buildVers
+
+
+def deps = [:]
+
+deps.gradle = [:]
+deps.gradle.plugin = "com.android.tools.build:gradle:$vers.gradle"
+
+deps.kotlin = [:]
+deps.kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$vers.kotlin"
+
+deps.appCompat = "androidx.appcompat:appcompat:$vers.appCompat"
+deps.activity = "androidx.activity:activity-ktx:$vers.activity"
+deps.fragment = "androidx.fragment:fragment-ktx:$vers.fragment"
+deps.core = "androidx.core:core-ktx:$vers.core"
+
+deps.navigation = [:]
+deps.navigation.fragment = "androidx.navigation:navigation-fragment-ktx:$vers.navigation"
+deps.navigation.ui = "androidx.navigation:navigation-ui-ktx:$vers.navigation"
+deps.navigation.plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$vers.navigation"
+
+deps.material = "com.google.android.material:material:$vers.material"
+deps.recyclerView = "androidx.recyclerview:recyclerview:$vers.recyclerView"
+deps.paging = "androidx.paging:paging-runtime-ktx:$vers.paging"
+deps.constraintLayout = "androidx.constraintlayout:constraintlayout:$vers.constraintLayout"
+deps.slidingpaneLayout = "androidx.slidingpanelayout:slidingpanelayout:$vers.slidingpaneLayout"
+
+deps.retrofit = [:]
+deps.retrofit.runtime = "com.squareup.retrofit2:retrofit:$vers.retrofit"
+deps.retrofit.gson = "com.squareup.retrofit2:converter-gson:$vers.retrofit"
+
+deps.httpLog = "com.squareup.okhttp3:logging-interceptor:$vers.httpLog"
+deps.httpParams = "com.github.jkyeo:okhttp-basicparamsinterceptor:$vers.httpParams"
+
+
+deps.lifecycle = [:]
+deps.lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$vers.lifecycle"
+deps.lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$vers.lifecycle"
+deps.lifecycle.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$vers.lifecycle"
+deps.lifecycle.viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$vers.lifecycle"
+deps.lifecycle.savedstate = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$vers.lifecycle"
+deps.lifecycle.service = "androidx.lifecycle:lifecycle-service:$vers.lifecycle"
+
+deps.room = [:]
+deps.room.runtime = "androidx.room:room-runtime:$vers.room"
+deps.room.ktx = "androidx.room:room-ktx:$vers.room"
+deps.room.compiler = "androidx.room:room-compiler:$vers.room"
+
+deps.datastore = [:]
+deps.datastore.typed = "androidx.datastore:datastore:$vers.datastore"
+deps.datastore.prefs = "androidx.datastore:datastore-preferences:$vers.datastore"
+
+deps.work = [:]
+deps.work.runtime = "androidx.work:work-runtime-ktx:$vers.work"
+
+
+deps.hilt = [:]
+deps.hilt.runtime = "com.google.dagger:hilt-android:$vers.hilt"
+deps.hilt.compiler = "com.google.dagger:hilt-android-compiler:$vers.hilt"
+deps.hilt.plugin = "com.google.dagger:hilt-android-gradle-plugin:$vers.hilt"
+
+deps.hiltx = [:]
+deps.hiltx.compiler = "androidx.hilt:hilt-compiler:$vers.hiltx"
+deps.hiltx.common = "androidx.hilt:hilt-common:$vers.hiltx"
+deps.hiltx.work = "androidx.hilt:hilt-work:$vers.hiltx"
+
+deps.okdownload = [:]
+deps.okdownload.runtime = "com.liulishuo.okdownload:okdownload:$vers.okdownload"
+deps.okdownload.okhttp = "com.liulishuo.okdownload:okhttp:$vers.okdownload"
+deps.okdownload.sqlite = "com.liulishuo.okdownload:sqlite:$vers.okdownload"
+deps.okdownload.ktx = "com.liulishuo.okdownload:ktx:$vers.okdownload"
+
+deps.permissionD = [:]
+deps.permissionD.runtime = "com.github.permissions-dispatcher:permissionsdispatcher:$vers.permissionD"
+deps.permissionD.compiler = "com.github.permissions-dispatcher:permissionsdispatcher-processor:$vers.permissionD"
+
+deps.ormlite = "com.j256.ormlite:ormlite-android:$vers.ormlite"
+
+deps.commonsCompress = "org.apache.commons:commons-compress:$vers.commonsCompress"
+
+
+ext.deps = deps
+
+
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.maven { url "https://jitpack.io" }
+    handler.jcenter()
+}
+ext.addRepos = this.&addRepos

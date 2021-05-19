@@ -1,8 +1,8 @@
-package com.cc12703.app.docsetreader.api
+package com.cc12703.app.docsetreader.data.api
 
-import com.cc12703.app.docsetreader.api.info.GitHubRepo
-import com.cc12703.app.docsetreader.api.info.GithubRelease
-import com.cc12703.app.docsetreader.api.util.ApiResponseCallAdapterFactory
+import com.cc12703.app.docsetreader.data.api.info.GitHubRepo
+import com.cc12703.app.docsetreader.data.api.info.GithubRelease
+import com.cc12703.app.docsetreader.data.api.util.ApiResponseCallAdapterFactory
 import com.jkyeo.basicparamsinterceptor.BasicParamsInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

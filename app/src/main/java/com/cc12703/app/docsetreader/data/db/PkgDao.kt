@@ -1,4 +1,4 @@
-package com.cc12703.app.docsetreader.db
+package com.cc12703.app.docsetreader.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

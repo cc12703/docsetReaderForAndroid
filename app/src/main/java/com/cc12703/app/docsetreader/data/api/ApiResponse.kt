@@ -1,4 +1,4 @@
-package com.cc12703.app.docsetreader.api
+package com.cc12703.app.docsetreader.data.api
 
 import retrofit2.Response
 

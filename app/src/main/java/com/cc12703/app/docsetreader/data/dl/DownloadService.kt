@@ -1,4 +1,4 @@
-package com.cc12703.app.docsetreader.dl
+package com.cc12703.app.docsetreader.data.dl
 
 import android.app.Application
 import android.util.Log
@@ -12,9 +12,6 @@ import com.liulishuo.okdownload.core.breakpoint.BreakpointInfo
 import com.liulishuo.okdownload.core.cause.EndCause
 import com.liulishuo.okdownload.core.listener.DownloadListener4WithSpeed
 import com.liulishuo.okdownload.core.listener.assist.Listener4SpeedAssistExtend
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.io.File
 import java.lang.Exception
 import javax.inject.Inject

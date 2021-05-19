@@ -1,13 +1,10 @@
-package com.cc12703.app.docsetreader.data
+package com.cc12703.app.docsetreader.data.repo
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.liveData
-import com.cc12703.app.docsetreader.api.*
-import com.cc12703.app.docsetreader.api.info.GithubRelease
-import com.cc12703.app.docsetreader.info.PkgInfo
+import com.cc12703.app.docsetreader.data.api.*
+import com.cc12703.app.docsetreader.data.api.info.GithubRelease
 import com.cc12703.app.docsetreader.info.PkgRemoteInfo
 import com.cc12703.app.docsetreader.info.Resource
 import com.cc12703.app.docsetreader.util.LOG_TAG
@@ -19,8 +16,8 @@ import javax.inject.Singleton
 
 @Singleton
 class PkgsRemoteRepository @Inject constructor(
-        private val service: GithubService,
-        private val settingRepo: SettingRepository,
+    private val service: GithubService,
+    private val settingRepo: SettingRepository,
 ) {
 
 

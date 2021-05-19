@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import com.cc12703.app.docsetreader.data.PkgContentRepository
+import com.cc12703.app.docsetreader.data.repo.PkgContentRepository
 import com.cc12703.app.docsetreader.databinding.ReadFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File

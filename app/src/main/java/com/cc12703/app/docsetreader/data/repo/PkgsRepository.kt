@@ -1,12 +1,12 @@
-package com.cc12703.app.docsetreader.data
+package com.cc12703.app.docsetreader.data.repo
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.cc12703.app.docsetreader.db.PkgDao
-import com.cc12703.app.docsetreader.dl.DownloadPkgNotifyer
-import com.cc12703.app.docsetreader.dl.DownloadService
+import com.cc12703.app.docsetreader.data.db.PkgDao
+import com.cc12703.app.docsetreader.data.dl.DownloadPkgNotifyer
+import com.cc12703.app.docsetreader.data.dl.DownloadService
 import com.cc12703.app.docsetreader.info.PkgInfo
 import com.cc12703.app.docsetreader.info.PkgRemoteInfo
 import com.cc12703.app.docsetreader.info.Resource

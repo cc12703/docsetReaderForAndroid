@@ -3,13 +3,14 @@ package com.cc12703.app.docsetreader.worker
 import android.content.Context
 import android.os.Environment
 import android.util.Log
-import androidx.hilt.Assisted
-import androidx.hilt.work.WorkerInject
+import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.cc12703.app.docsetreader.data.PkgsRepository
-import com.cc12703.app.docsetreader.data.SettingRepository
+import com.cc12703.app.docsetreader.data.repo.PkgsRepository
+import com.cc12703.app.docsetreader.data.repo.SettingRepository
 import com.cc12703.app.docsetreader.util.LOG_TAG
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.first
@@ -17,7 +18,8 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.io.File
 
-class LoadSettingWorker @WorkerInject constructor (
+@HiltWorker
+class LoadSettingWorker @AssistedInject constructor (
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters,
     private val settingRepo: SettingRepository,

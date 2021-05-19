@@ -1,4 +1,4 @@
-package com.cc12703.app.docsetreader.api.info
+package com.cc12703.app.docsetreader.data.api.info
 
 import com.google.gson.annotations.SerializedName
 

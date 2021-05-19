@@ -1,4 +1,4 @@
-package com.cc12703.app.docsetreader.data
+package com.cc12703.app.docsetreader.data.repo
 
 import com.j256.ormlite.field.DatabaseField
 import com.j256.ormlite.table.DatabaseTable
