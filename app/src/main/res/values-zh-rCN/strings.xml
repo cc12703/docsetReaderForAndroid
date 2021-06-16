@@ -17,5 +17,6 @@
     <string name="setting_btn_cancel">取消</string>
     <string name="setting_text_github_name">github账号名</string>
     <string name="setting_text_tag_prefix_name">目标前缀名</string>
+    <string name="setting_text_docset_update_addr">更新服务器地址</string>
 
 </resources>

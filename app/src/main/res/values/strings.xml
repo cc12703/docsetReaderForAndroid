@@ -19,6 +19,7 @@
     <string name="setting_btn_cancel">cancel</string>
     <string name="setting_text_github_name">github_name</string>
     <string name="setting_text_tag_prefix_name">tag_prefix_name</string>
+    <string name="setting_text_docset_update_addr">docset_update_addr</string>
 
 
 </resources>

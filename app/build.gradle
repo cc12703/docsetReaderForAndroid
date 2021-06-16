@@ -102,6 +102,10 @@ dependencies {
 
     implementation deps.commonsCompress
 
+    implementation (deps.sioClient) {
+        exclude group: 'org.json', module: 'json'
+    }
+
     implementation fileTree(includes: ['*.jar'], dir: 'libs')
 
 }

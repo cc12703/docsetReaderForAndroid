@@ -24,7 +24,7 @@ interface GithubService {
     companion object {
 
         fun create(): GithubService {
-            val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.HEADERS }
+            val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
             var params = BasicParamsInterceptor.Builder()
                     .addHeaderParam("Accept", "application/vnd.github.v3+json")
                     .build()

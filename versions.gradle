@@ -35,6 +35,8 @@ vers.ormlite = '5.3'
 
 vers.commonsCompress = '1.20'
 
+vers.sioClient = '2.0.1'
+
 ext.vers = vers
 
 def buildVers = [:]
@@ -122,6 +124,7 @@ deps.ormlite = "com.j256.ormlite:ormlite-android:$vers.ormlite"
 
 deps.commonsCompress = "org.apache.commons:commons-compress:$vers.commonsCompress"
 
+deps.sioClient = "io.socket:socket.io-client:$vers.sioClient"
 
 ext.deps = deps
 

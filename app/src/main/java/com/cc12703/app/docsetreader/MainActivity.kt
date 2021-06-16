@@ -5,8 +5,6 @@ package com.cc12703.app.docsetreader
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
@@ -22,8 +20,6 @@ import com.cc12703.app.docsetreader.util.LOG_TAG
 import com.cc12703.app.docsetreader.worker.LoadSettingWorker
 import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.File
-import kotlin.concurrent.fixedRateTimer
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -66,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //add here for request permission
         val req = OneTimeWorkRequestBuilder<LoadSettingWorker>().build()
         WorkManager.getInstance(this).enqueue(req)
     }

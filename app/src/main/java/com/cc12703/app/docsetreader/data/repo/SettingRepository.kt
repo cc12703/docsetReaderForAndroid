@@ -23,6 +23,7 @@ class SettingRepository @Inject constructor(
     companion object {
         val GITHUB_LOGIN_NAME = stringPreferencesKey("github_login_name")
         val TAG_PREFIX_NAME = stringPreferencesKey("tag_prefix_name")
+        val DOCSET_UPDATE_ADDR = stringPreferencesKey("docset_update_addr")
     }
 
 
@@ -31,15 +32,19 @@ class SettingRepository @Inject constructor(
 
     val githubName = app.settingsStore.data.map { pref -> pref[GITHUB_LOGIN_NAME]?: "" }
     val tagPrefixName = app.settingsStore.data.map { pref -> pref[TAG_PREFIX_NAME]?: "" }
+    val docsetUpdateAddr = app.settingsStore.data.map { pref -> pref[DOCSET_UPDATE_ADDR]?: ""}
 
 
-    suspend fun save(githubLogin: String?, tagPrefix: String?) {
+    suspend fun save(githubLogin: String?, tagPrefix: String?, docsetUpdateAddr: String?) {
         app.settingsStore.edit { pref ->
             if (githubLogin?.isNotEmpty()!!) {
                 pref[GITHUB_LOGIN_NAME] = githubLogin
             }
             if (tagPrefix?.isNotEmpty()!!) {
                 pref[TAG_PREFIX_NAME] = tagPrefix
+            }
+            if (docsetUpdateAddr?.isNotEmpty()!!) {
+                pref[DOCSET_UPDATE_ADDR] = docsetUpdateAddr
             }
         }
     }

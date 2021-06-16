@@ -29,6 +29,7 @@ class LoadSettingWorker @AssistedInject constructor (
     companion object {
         const val CFG_KEY_GITHUB_NAME = "github.name"
         const val CFG_KEY_TAG_PREFIX_NAME = "tag.prefix.name"
+        const val CFG_KEY_DOCSET_UPDATE_ADDR = "docset.update.addr"
     }
 
     override suspend fun doWork(): Result {
@@ -46,10 +47,12 @@ class LoadSettingWorker @AssistedInject constructor (
 
         val githubName = jsonObj.getString(CFG_KEY_GITHUB_NAME)
         val tagPrefixName = jsonObj.getString(CFG_KEY_TAG_PREFIX_NAME)
+        val updateAddr = jsonObj.getString(CFG_KEY_DOCSET_UPDATE_ADDR)
 
         Log.i(LOG_TAG, "read ${githubName} - ${tagPrefixName}")
+        Log.i(LOG_TAG, "update addr ${updateAddr}")
 
-        settingRepo.save(githubName, tagPrefixName)
+        settingRepo.save(githubName, tagPrefixName, updateAddr)
         GlobalScope.launch(Dispatchers.Main) {
             pkgsRepo.refreshPkgs()
         }

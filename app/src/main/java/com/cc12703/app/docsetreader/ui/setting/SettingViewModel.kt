@@ -21,12 +21,15 @@ class SettingViewModel @Inject internal constructor(
 
     val tagPrefixName = repo.tagPrefixName.asLiveData() as MutableLiveData
 
+    val docsetUpdateAddr = repo.docsetUpdateAddr.asLiveData() as MutableLiveData
+
 
     fun save() {
         viewModelScope.launch {
             Log.i(LOG_TAG, "save githubname ${gitHubName.value}")
             Log.i(LOG_TAG, "save tagprefixname ${tagPrefixName.value}")
-            repo.save(gitHubName.value, tagPrefixName.value)
+            Log.i(LOG_TAG, "save docsetupdateaddr ${docsetUpdateAddr.value}")
+            repo.save(gitHubName.value, tagPrefixName.value, docsetUpdateAddr.value)
         }
     }
 }

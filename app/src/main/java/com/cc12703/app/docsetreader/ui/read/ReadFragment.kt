@@ -29,7 +29,7 @@ class ReadFragment : Fragment() {
     }
 
     private val repo: PkgContentRepository by lazy {
-        PkgContentRepository.get(File(arguments!!.getString("docsetPath")))
+        PkgContentRepository.get(File(requireArguments().getString("docsetPath")))
     }
 
     private lateinit var webView: ReadWebView
