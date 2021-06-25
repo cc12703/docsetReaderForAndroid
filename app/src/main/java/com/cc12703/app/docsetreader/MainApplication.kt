@@ -8,7 +8,6 @@ import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import com.liulishuo.okdownload.core.Util
 import dagger.hilt.android.HiltAndroidApp
-import org.slf4j.bridge.SLF4JBridgeHandler
 import javax.inject.Inject
 
 @HiltAndroidApp

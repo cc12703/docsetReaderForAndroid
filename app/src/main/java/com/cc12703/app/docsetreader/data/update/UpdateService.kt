@@ -11,6 +11,7 @@ import io.socket.engineio.client.transports.WebSocket
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import javax.inject.Inject
@@ -24,7 +25,7 @@ class UpdateService @Inject constructor(
 
 
     private var sio: Socket? = null
-
+    private var curAddr: String = ""
 
 
     private fun openSocketIO(addr: String) {
@@ -39,9 +40,7 @@ class UpdateService @Inject constructor(
 
             val infos = buildInfo(args[0] as JSONArray)
             if(infos.isNotEmpty()) {
-                GlobalScope.launch(Dispatchers.IO) {
-                    updatePkgs(infos)
-                }
+                updatePkgs(infos)
             }
         }
         sio?.on(Socket.EVENT_CONNECT) { _ -> Log.i(LOG_TAG, "sio connect succ") }
@@ -57,6 +56,7 @@ class UpdateService @Inject constructor(
 
     private fun updatePkgs(pkgs: List<PkgRemoteInfo>) {
         Log.i(LOG_TAG, "updatePkgs num ${pkgs.size}")
+        pkgRepo.updatePkgs(pkgs)
     }
 
     private fun buildInfo(datas: JSONArray): List<PkgRemoteInfo> {
@@ -76,10 +76,20 @@ class UpdateService @Inject constructor(
     }
 
 
+    private fun isCreateSocketIO(addr: String): Boolean {
+        if(addr.isEmpty())
+            return false
+
+        if(curAddr.isEmpty())
+            return true
+
+        return curAddr != addr
+    }
 
     suspend fun start() {
         settingRepo.docsetUpdateAddr.collect { value ->
-            if (value?.isNotEmpty()) {
+            if (isCreateSocketIO(value)) {
+                curAddr = value
                 GlobalScope.launch(Dispatchers.IO) {
                     closeSocketIO()
                     openSocketIO(value)
