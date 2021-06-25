@@ -1,0 +1,15 @@
+
+{
+    "url": "https://api.github.com/repos/{{arg_owner}}/{{arg_repo}}/releases/{{int 1000 100000}}",
+    "name": "{{username}}",
+    "tag_name": "v{{int 1 4}}",
+    "assets": [
+        {
+            "url": "https://api.github.com/repos/{{arg_owner}}/{{arg_repo}}/releases/assets/{{int 1000 100000}}",
+            "name": "{{arg_repo}}.docset.tgz",
+            "content_type": "application/tgz",
+            "browser_download_url": "empty_url"
+        }
+    ]
+
+}

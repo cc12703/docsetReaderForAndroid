@@ -1,0 +1,34 @@
+{
+  "port": "3000",
+  "timeout": 300,
+  "servePath": {
+    "enabled": true,
+    "endpoints": [
+      {
+        "endpoint": "/users/:login/repos",
+        "type": "get",
+        "filePath": "./templates/json-user-repos.hbs",
+        "partial": {
+          "normal": "./templates/json-user-repos-normal.hbs",
+          "learning": "./templates/json-user-repos-learning.hbs"
+        }
+      },
+      {
+        "endpoint": "/repos/:owner/:repo/releases/latest",
+        "type": "get",
+        "filePath": "./templates/json-repo-latest.hbs"
+      }
+    ]
+  },
+  "serveWebsocket": {
+    "enabled": true,
+    "endpoints": [
+      {
+        "endpoint": "/",
+        "event": "updateInfos",
+        "filePath": "./templates/json-update.hbs",
+        "type": "fileWatcher"
+      }
+    ]
+  }
+}
