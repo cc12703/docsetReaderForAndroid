@@ -56,7 +56,7 @@ class UpdateService @Inject constructor(
 
     private fun updatePkgs(pkgs: List<PkgRemoteInfo>) {
         Log.i(LOG_TAG, "updatePkgs num ${pkgs.size}")
-        pkgRepo.updatePkgs(pkgs)
+        //pkgRepo.updatePkgs(pkgs)
     }
 
     private fun buildInfo(datas: JSONArray): List<PkgRemoteInfo> {
