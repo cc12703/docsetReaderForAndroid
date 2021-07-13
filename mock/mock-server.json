@@ -24,7 +24,7 @@
     "enabled": true,
     "endpoints": [
       {
-        "endpoint": "/",
+        "endpoint": "/socket.io",
         "event": "updateInfos",
         "filePath": "./templates/json-update.hbs",
         "type": "fileWatcher"

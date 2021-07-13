@@ -1,5 +1,6 @@
 package com.cc12703.app.docsetreader.data.api
 
+import com.cc12703.app.docsetreader.BuildConfig
 import com.cc12703.app.docsetreader.data.api.info.GitHubRepo
 import com.cc12703.app.docsetreader.data.api.info.GithubRelease
 import com.cc12703.app.docsetreader.data.api.util.ApiResponseCallAdapterFactory
@@ -34,7 +35,7 @@ interface GithubService {
                     .build()
 
             return Retrofit.Builder()
-                    .baseUrl("https://api.github.com/")
+                    .baseUrl(BuildConfig.DOCSET_ACQUIRE_ADDR)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(ApiResponseCallAdapterFactory())

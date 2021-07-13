@@ -1,6 +1,7 @@
 package com.cc12703.app.docsetreader.data.update
 
 import android.util.Log
+import com.cc12703.app.docsetreader.BuildConfig
 import com.cc12703.app.docsetreader.data.repo.PkgsRepository
 import com.cc12703.app.docsetreader.data.repo.SettingRepository
 import com.cc12703.app.docsetreader.info.PkgRemoteInfo
@@ -87,12 +88,17 @@ class UpdateService @Inject constructor(
     }
 
     suspend fun start() {
-        settingRepo.docsetUpdateAddr.collect { value ->
-            if (isCreateSocketIO(value)) {
-                curAddr = value
-                GlobalScope.launch(Dispatchers.IO) {
-                    closeSocketIO()
-                    openSocketIO(value)
+        if(BuildConfig.LOCAL) {
+            openSocketIO(BuildConfig.DOCSET_UPDATE_ADDR)
+        }
+        else {
+            settingRepo.docsetUpdateAddr.collect { value ->
+                if (isCreateSocketIO(value)) {
+                    curAddr = value
+                    GlobalScope.launch(Dispatchers.IO) {
+                        closeSocketIO()
+                        openSocketIO(value)
+                    }
                 }
             }
         }
